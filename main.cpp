@@ -38,27 +38,45 @@ void Taxation::getDetails() {
 }
 
 void Taxation::computeTax() {
-    double tax1, tax2, tax3, rem, remTax;
+    double tax1, tax2, rem, remTax;
     tax1 = 24000 * 0.08;
     tax2 = 56000 * 0.1;
 
-    if (grossPay > 0 && grossPay <= 24000) {
-        taxAmount = grossPay * 0.08;
-
-    } else if (grossPay > 24000 && grossPay <= 56000) {
-        rem = grossPay - 24000;
-        remTax = rem * 0.1;
-
-        taxAmount = tax1 + remTax;
-
-    } else if(grossPay > 56000) {
+    if (grossPay > 56000) {
         rem = grossPay - (56000 + 24000);
         remTax = rem * 0.3;
 
         taxAmount = tax1 + tax2 + remTax;
+
+    } else if (grossPay > 24000) {
+        rem = grossPay - 24000;
+        remTax = rem * 0.1;
+
+        taxAmount = tax1 + remTax;
+        
+    } else if (grossPay > 0) {
+        taxAmount = grossPay * 0.08;
     } else {
         cout << "Your gross pay cannot be negative" << endl;
     }
+
+//    if (grossPay > 0 && grossPay <= 24000) {
+//        taxAmount = grossPay * 0.08;
+//
+//    } else if (grossPay > 24000 && grossPay <= 56000) {
+//        rem = grossPay - 24000;
+//        remTax = rem * 0.1;
+//
+//        taxAmount = tax1 + remTax;
+//
+//    } else if(grossPay > 56000) {
+//        rem = grossPay - (56000 + 24000);
+//        remTax = rem * 0.3;
+//
+//        taxAmount = tax1 + tax2 + remTax;
+//    } else {
+//        cout << "Your gross pay cannot be negative" << endl;
+//    }
 }
 
 void Taxation::print() {
