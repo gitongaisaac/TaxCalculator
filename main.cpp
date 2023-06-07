@@ -53,7 +53,7 @@ void Taxation::computeTax() {
         remTax = rem * 0.1;
 
         taxAmount = tax1 + remTax;
-        
+
     } else if (grossPay > 0) {
         taxAmount = grossPay * 0.08;
     } else {
